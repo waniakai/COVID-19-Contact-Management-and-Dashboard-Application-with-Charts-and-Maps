@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/waniakai/COVID-19-Contact-Management-and-Dashboard-Application-with-Charts-and-Maps.git/static/css/main.4bad64ae.css",
+    "main.js": "/waniakai/COVID-19-Contact-Management-and-Dashboard-Application-with-Charts-and-Maps.git/static/js/main.17a97bd4.js",
+    "static/media/coro.png": "/waniakai/COVID-19-Contact-Management-and-Dashboard-Application-with-Charts-and-Maps.git/static/media/coro.2436770bdec2824351d9.png",
+    "index.html": "/waniakai/COVID-19-Contact-Management-and-Dashboard-Application-with-Charts-and-Maps.git/index.html",
+    "main.4bad64ae.css.map": "/waniakai/COVID-19-Contact-Management-and-Dashboard-Application-with-Charts-and-Maps.git/static/css/main.4bad64ae.css.map",
+    "main.17a97bd4.js.map": "/waniakai/COVID-19-Contact-Management-and-Dashboard-Application-with-Charts-and-Maps.git/static/js/main.17a97bd4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4bad64ae.css",
+    "static/js/main.17a97bd4.js"
+  ]
+}
