@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Component/Header';
 import Sidebar from './Component/Sidebar';
 import ContactForm from './Component/ContactForm';
-import ChartMap from './Component/ChartMap/ChartMian'; // Import the ChartMap component instead of ContactView
-// Import other components or pages as needed
+import ChartMap from './Component/ChartMap/ChartMian'; 
 
 const App: React.FC = () => {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 640);
@@ -36,19 +35,16 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <Header /> {/* Include the Header */}
+        <Header /> 
         <div className="flex flex-1">
-          <Sidebar /> {/* Include the Sidebar */}
+          <Sidebar /> 
           <div className="flex flex-col flex-1 overflow-y-auto">
-            {/* Add a wrapper div to center its contents */}
             <div className={`flex pt-16 items-center justify-center h-full ${isMobileView ? 'text-center' : ''}`}>
-              <div className="w-full sm:px-10 md:px-20 py-2"> {/* Updated padding on small screens */}
-                {/* Use Routes component to define your routing */}
+              <div className="w-full sm:px-10 md:px-20 py-2">
                 <Routes>
-                  {/* Use the 'element' child prop inside the Route */}
                   <Route path="/contacts" element={<ContactForm />} />
-                  <Route path="/chartandmap" element={<ChartMap />} /> {/* Use the ChartMap component */}
-                  {/* Define other routes here */}
+                  <Route path="/chartandmap" element={<ChartMap />} /> 
+                  
                 </Routes>
               </div>
             </div>
