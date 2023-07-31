@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         className="text-white flex items-center gap-2 transition-colors hover:text-blue-400"
       >
         <p className="hidden sm:block">Click to visit my LinkedIn Profile</p>
-        <FaLinkedin className="w-6 h-6" /> {/* Adjust the size with w-* and h-* classes */}
+        <FaLinkedin className="w-6 h-6" /> 
       </a>
     </header>
   );
