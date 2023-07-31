@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const LineGraph: React.FC = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const chartInstanceRef = useRef<Chart<'line', number[], string> | null>(null); // Explicitly define the Chart type
+  const chartInstanceRef = useRef<Chart<'line', number[], string> | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,9 +12,8 @@ const LineGraph: React.FC = () => {
         const response = await axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=all');
         const historicalData = response.data;
         const dates = Object.keys(historicalData.cases);
-        const cases = Object.values(historicalData.cases) as number[]; // Assert data type to 'number[]'
+        const cases = Object.values(historicalData.cases) as number[]; 
 
-        // Update the data object for Chart.js
         const data: ChartData<'line', number[], string> = {
           labels: dates,
           datasets: [
@@ -29,13 +28,11 @@ const LineGraph: React.FC = () => {
           ],
         };
 
-        // Destroy previous Chart.js instance if exists
         if (chartInstanceRef.current) {
           chartInstanceRef.current.destroy();
         }
 
-        // Create the line graph
-        const lineChart = new Chart(chartRef.current!, { // Add '!' to assert that chartRef.current is not null
+        const lineChart = new Chart(chartRef.current!, {
           type: 'line',
           data: data,
           options: {
@@ -49,13 +46,11 @@ const LineGraph: React.FC = () => {
                 display: true,
               },
             },
-          } as ChartOptions<'line'>, // Explicitly define the ChartOptions type
+          } as ChartOptions<'line'>, 
         });
 
-        // Save the Chart.js instance to the ref
         chartInstanceRef.current = lineChart;
 
-        // Resize chart when window size changes
         const handleResize = () => {
           lineChart.resize();
         };
@@ -64,7 +59,6 @@ const LineGraph: React.FC = () => {
 
         return () => {
           window.removeEventListener('resize', handleResize);
-          // Destroy Chart.js instance on unmount
           lineChart.destroy();
         };
       } catch (error) {
