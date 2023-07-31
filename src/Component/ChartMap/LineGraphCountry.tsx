@@ -16,7 +16,6 @@ const LineGraphCountryCode: React.FC = () => {
         const dates = Object.keys(historicalData.cases);
         const cases = Object.values(historicalData.cases) as number[];
 
-        // Update the data object for Chart.js
         const data: ChartData<'line', number[], string> = {
           labels: dates,
           datasets: [
@@ -31,12 +30,10 @@ const LineGraphCountryCode: React.FC = () => {
           ],
         };
 
-        // Destroy previous Chart.js instance if exists
         if (chartInstanceRef.current) {
           chartInstanceRef.current.destroy();
         }
 
-        // Create the line graph
         const lineChart = new Chart(chartRef.current!, {
           type: 'line',
           data: data,
@@ -54,10 +51,8 @@ const LineGraphCountryCode: React.FC = () => {
           } as ChartOptions<'line'>,
         });
 
-        // Save the Chart.js instance to the ref
         chartInstanceRef.current = lineChart;
 
-        // Resize chart when window size changes
         const handleResize = () => {
           lineChart.resize();
         };
@@ -66,7 +61,6 @@ const LineGraphCountryCode: React.FC = () => {
 
         return () => {
           window.removeEventListener('resize', handleResize);
-          // Destroy Chart.js instance on unmount
           lineChart.destroy();
         };
       } catch (error) {
